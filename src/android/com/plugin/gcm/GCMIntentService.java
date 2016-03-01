@@ -13,7 +13,9 @@ import android.support.v4.app.NotificationCompat;
 import android.util.Log;
 import com.appgyver.cordova.R;
 import android.os.Build;
-import android.graphics;
+import android.graphics.Bitmap;
+import android.graphics.Color;
+import android.graphics.BitmapFactory;
 
 @SuppressLint("NewApi")
 public class GCMIntentService extends GCMBaseIntentService {
