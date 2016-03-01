@@ -13,7 +13,7 @@ import android.support.v4.app.NotificationCompat;
 import android.util.Log;
 import com.appgyver.cordova.R;
 import android.os.Build;
-import android.graphics.color;
+import android.graphics;
 
 @SuppressLint("NewApi")
 public class GCMIntentService extends GCMBaseIntentService {
@@ -23,9 +23,18 @@ public class GCMIntentService extends GCMBaseIntentService {
     private static String TAG = "PushPlugin-GCMIntentService";
 
     public static final String MESSAGE = "message";
+    
+    private static Bitmap ICON;
 
     public GCMIntentService() {
         super("GCMIntentService");
+    }
+    
+     @Override
+    public void onCreate() {
+        if (ICON == null)
+            ICON = BitmapFactory.decodeResource(getResources(), getApplicationContext().getApplicationInfo().icon);
+        super.onCreate();
     }
 
     @Override
@@ -93,7 +102,7 @@ public class GCMIntentService extends GCMBaseIntentService {
         mBuilder.setColor(Color.parseColor("#AE0532"));
       } else {
         //For older devices - set Main Logo which will be displayed in notification list
-        mBuilder.setLargeIcon(context.getApplicationInfo().icon);
+        mBuilder.setLargeIcon(ICON);
       }
 
         String message = extras.getString("message");
