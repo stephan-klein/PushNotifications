@@ -90,7 +90,7 @@ public class GCMIntentService extends GCMBaseIntentService {
                         
       if (Build.VERSION.SDK_INT >= 21) {
         //New Method for Lollipop - In notification List this color is the background
-        mBuilder.setColor(Color.parseColor("#AE0532");
+        mBuilder.setColor(Color.parseColor("#AE0532"));
       } else {
         //For older devices - set Main Logo which will be displayed in notification list
         mBuilder.setLargeIcon(context.getApplicationInfo().icon);
